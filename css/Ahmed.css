@@ -15,7 +15,7 @@ html {
 }
 body {
     font-family: "Cairo", sans-serif;
-    background-color: rgb(214, 212, 210);
+    background-color: rgb(239, 238, 238);
 }
 a {
     text-decoration: none;
@@ -56,6 +56,8 @@ ul {
 .header{
         background: white;
         box-shadow: 0 0 10px #ccc;
+        -webkit-box-shadow: 0 0 10px #ccc;
+        -moz-box-shadow: 0 0 10px #ccc;
         position: relative;
 }
 .header .container {
@@ -66,28 +68,164 @@ ul {
         position: relative;
 }
 .header .logo {
-        height: var(--main-height);
         color: var(--main-color);
+        height: var(--main-height);
         font-size: 26px;
         font-weight: bold;
         display: flex;
         justify-content: center;
         align-items: center;
 }
-.header .min-nav {
+@media (max-width: 767px) {
+    .header .container .logo {
+        width: 100%;
+        height: 40px
+    }
+}
+.header .main-nav {
         display: flex;
 }
-.header .min-nav > li >a {
+@media (max-width: 767px) {
+    .header .container .main-nav {
+        margin: auto;
+    }
+}
+.header .container .main-nav > li > a {
+        position: relative;
         color: black;
+        display: flex;
         height: var(--main-height);
         padding: 0 30px;
         justify-content: center;
         align-items: center;
-        position: relative;
-        transition: 0.3s;
+        font-size: 18px;
+        transition: var(--main-transition);
         -webkit-transition:var(--main-transition);
         -moz-transition:var(--main-transition);
         -ms-transition:var(--main-transition);
         -o-transition:var(--main-transition);
+        overflow: hidden;
+}
+@media (max-width: 767px) {
+    .header .container .main-nav>li>a {
+        padding: 10px;
+        font-size: 14px;
+        height: 40px
+    }
+}
+.header .container .main-nav > li >a:hover {
+    color: var(--main-color);
+    background-color: #fafafa;
+}
+.header .container .main-nav > li >a::before {
+    content: "";
+    width: 100%;
+    height: 4px;
+    background-color: var(--main-color);
+    position: absolute;
+    top: 0;
+    left: -100%; 
+    transition: var(--main-transition);
+}
+.header .container .main-nav > li >a:hover::before {
+left:0;
 }
 /* *End Header */
+/* *Start landing */
+.landing {
+    position: relative;
+}
+.landing::before {
+    content: "";
+    background-color: #ccc;
+    position: absolute;
+    top: -10%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: skewY(-6deg);
+    transform-origin: top left;
+    z-index: -1;
+}
+.landing .container {
+    min-height: calc(100vh - var(--main-height));
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-bottom: 150px;
+}
+.landing .text {
+    flex: 1;
+}
+@media (max-width: 991px) {
+    .landing .text {
+        text-align: center;
+    }
+}
+.landing .text h1 {
+    font-size: 50px;
+    letter-spacing: -2px;
+    margin: 0;
+}
+@media (max-width: 767px) {
+    .landing .text h1 {
+        font-size: 28px;
+    }
+}
+.landing .text p {
+    font-size: 20px;
+    font-size: 20px;
+    margin: 5px 0 0;
+    line-height: 1.7;
+    color: #666;
+}
+@media (max-width: 991px) {
+    .landing .text p {
+        margin: 10px auto ;
+    }
+}
+@media (max-width: 767px) {
+    .landing .text p {
+        font-size: 16px;
+    }
+}
+.landing .container .image img {
+    position: relative;
+    width: 600px;
+    animation: up-and-down 5s linear infinite;
+}
+@media (max-width: 991px) {
+    .landing .container .image img {
+        display: none;
+    }
+}
+.landing .go-down {
+    color: var(--main-color);
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: var(--main-transition);
+}
+.landing .go-down i {
+    animation: bouncing 1.5s infinite;
+}
+/* *End landing */
+/* *Start Animations */
+@keyframes up-and-down {
+    0%, 100% {
+        top: 0;
+    }
+    50% {
+        top: -50px
+    }
+}
+@keyframes bouncing {
+    0%,10%,20%,30%,60%,70%,80%,90%,100% {
+        transform: translateY(0);
+    }
+    40%,50% {
+        transform: translateY(-15px);
+    }
+}
+/* *End Animations */
