@@ -9,6 +9,9 @@
     --main-color-alt: #1787e0;
     --main-height: 72px;
     --main-transition:0.3s;
+    --padding-top:100px;
+    --padding-bottom: 100px;
+    --second-color:#777;
 }
 html {
     scroll-behavior: smooth;
@@ -16,6 +19,7 @@ html {
 body {
     font-family: "Cairo", sans-serif;
     background-color: rgb(239, 238, 238);
+    cursor: auto
 }
 a {
     text-decoration: none;
@@ -335,6 +339,59 @@ left:0;
     animation: bouncing 1.5s infinite;
 }
 /* *End landing */
+/* *Start Articles */
+.articles {
+    padding-top: var(--padding-top);
+    padding-bottom: var(--padding-bottom);
+}
+.articles .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    gap: 40px;
+}
+.articles .container .box {
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0px 2px 15px rgb(222, 220, 220);
+    transition: transform var(--main-transition), box-shadow var(--main-transition);
+    overflow: hidden;
+}
+.articles .container .box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 2px 15px rgb(196, 194, 194);
+}
+.articles .container .box img {
+    width: 100%;
+    max-width: 100%;
+}
+.articles .box .content {
+    padding: 20px;
+}
+.articles .box .content h3 {
+    margin: 0;
+}
+.articles .box .content p {
+    margin: 15px auto 15px;
+    color: var(--second-color);
+    line-height: 1.7;
+}
+.articles .box .info {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.articles .box .info a {
+    color: var(--main-color);
+    font-weight: bold;
+}
+.articles .box .info i {
+    color: var(--main-color);
+}
+.articles .box:hover .info i {
+    animation: moving-arrow 0.6s linear infinite;
+}
+/* *End Articles */
 /* *Start Animations */
 @keyframes up-and-down {
     0%, 100% {
@@ -377,6 +434,11 @@ left:0;
         width: 50%;
         height: 100%;
         border-radius: 0;
+    }
+}
+@keyframes moving-arrow {
+    100% {
+        transform: translateX(10px);
     }
 }
 /* *End Animations */

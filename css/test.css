@@ -8,7 +8,10 @@
 :root {
     --main-color: #2196f3;
     --main-color-alt: #1787e0;
+    --section-background: #ececec;
     --main-height: 72px;
+    --padding-top:100px;
+    --padding-bottom: 100px;
     --main-transition: 0.3s;
 }
 
@@ -330,6 +333,58 @@ ul {
     animation: bouncing 1.5s infinite;
 }
 /* *End landing */
+/* *Start Articles */
+.articles {
+    padding-top: var(--padding-top);
+    padding-bottom: var(--padding-bottom);
+}
+.articles .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    gap: 40px;
+}
+.articles .box {
+    background-color: white;
+    box-shadow: 0px 2px 15px #9E9E9E;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform var(--main-transition), box-shadow var(--main-transition);
+}
+.articles .box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 2px 15px #898787;
+}
+.articles .box img { 
+    width: 100%;
+    max-width: 100%;
+}
+.articles .box .content {
+    padding: 20px;
+}
+.articles .box .content h3 {
+    margin: 0;
+}
+.articles .box .content p {
+    margin: 15px auto 20px;
+}
+.articles .box .info {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.articles .box .info a {
+    color: var(--main-color);
+    font-weight: bold;
+}
+.articles .box .info i {
+    color: var(--main-color);
+    transition: var(--main-transition);
+}
+.articles .box:hover .info i {
+    animation: move-arow 0.6s linear infinite;
+}
+/* *End Articles */
 /* *Start animation */
 @keyframes up-and-down {
     0%, 100% {
@@ -376,4 +431,9 @@ ul {
                 width: 50%;
             }
         }
+    @keyframes move-arow {
+        100% {
+            transform: translateX(10px);
+        }
+    } 
 /* *End animation */
