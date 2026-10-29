@@ -262,10 +262,11 @@ left:0;
 /* *Start landing */
 .landing {
     position: relative;
+    margin-top: 100px;
 }
 .landing::before {
     content: "";
-    background-color: #ece9e9;
+    background-color: #e6e9e9;
     position: absolute;
     top: -10%;
     left: 0;
