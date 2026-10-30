@@ -337,6 +337,7 @@ ul {
 .articles {
     padding-top: var(--padding-top);
     padding-bottom: var(--padding-bottom);
+    position: relative;
 }
 .articles .container {
     display: grid;
@@ -366,12 +367,15 @@ ul {
 }
 .articles .box .content p {
     margin: 15px auto 20px;
+    line-height: 1.7;
+    color: #777;
 }
 .articles .box .info {
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-top: 1px solid #e6e6e7;
 }
 .articles .box .info a {
     color: var(--main-color);
@@ -385,6 +389,49 @@ ul {
     animation: move-arow 0.6s linear infinite;
 }
 /* *End Articles */
+/* *Start Gallery */
+.gallery {
+    padding-top: var(--padding-top);
+    padding-bottom: var(--padding-bottom);
+    position: relative;
+}
+.gallery .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+.gallery .box {
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0px 12px 20px 0px rgb(0 0 0 / 13%), 0px 2px 4px 0px rgb(0 0 0 / 12%);
+}
+.gallery .box .image {
+    position: relative;
+    overflow: hidden;
+}
+.gallery .box .image::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #ffffff38;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    z-index: 2;
+}
+.gallery .box .image:hover::before {
+    animation: flashing 0.7s;
+}
+.gallery .box .image img {
+    max-width: 100%;
+    transition: var(--main-transition);
+}
+.gallery .box .image:hover img {
+    transform: rotate(6deg) scale(1.1);
+}
+/* *End Gallery */
 /* *Start animation */
 @keyframes up-and-down {
     0%, 100% {
@@ -436,4 +483,16 @@ ul {
             transform: translateX(10px);
         }
     } 
+@keyframes flashing {
+    0%,
+    40% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        width: 200%;
+        height: 200%;
+    }
+    
+}
 /* *End animation */
