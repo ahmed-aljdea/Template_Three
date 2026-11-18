@@ -298,6 +298,7 @@ left:0;
 @media (max-width: 767px) {
     .landing .text h1 {
         font-size: 28px;
+        letter-spacing: -1px;
     }
 }
 .landing .text p {
